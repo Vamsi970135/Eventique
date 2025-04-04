@@ -1,0 +1,13 @@
+{
+	"appId": "com.eventeaseapp",
+	"appName": "EventEase",
+	"webDir": "dist/public",
+	"server": {
+		"androidScheme": "https",
+		"allowNavigation": [
+			"localhost",
+			"*.replit.app"
+		]
+	},
+	"android": {}
+}
