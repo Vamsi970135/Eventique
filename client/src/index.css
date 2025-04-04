@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* EventEase Indian-inspired Color Palette */
+:root {
+  /* Theme Colors */
+  --white-smoke: #f7f4f3;
+  --wine: #5b2333;
+  
+  /* Color Variants */
+  --wine-light: #6d2a3d;
+  --wine-dark: #491c29;
+  --white-smoke-dark: #e8e5e4;
+  --white-smoke-light: #ffffff;
+  
+  /* System Colors */
+  --background: var(--white-smoke);
+  --foreground: var(--wine);
+  --primary: var(--wine);
+  --primary-foreground: var(--white-smoke);
+  --secondary: var(--white-smoke-dark);
+  --secondary-foreground: var(--wine);
+  --accent: var(--wine-light);
+  --accent-foreground: var(--white-smoke);
+
+  /* Dark mode overrides */
+  .dark {
+    --background: var(--wine);
+    --foreground: var(--white-smoke);
+    --primary: var(--white-smoke);
+    --primary-foreground: var(--wine);
+    --secondary: var(--wine-light);
+    --secondary-foreground: var(--white-smoke);
+    --accent: var(--white-smoke-dark);
+    --accent-foreground: var(--wine);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f4c430' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  
+  /* Section styling with subtle paisley patterns */
+  section {
+    position: relative;
+  }
+  
+  section.indian-pattern::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, var(--saffron), var(--gold), var(--maroon-700), var(--gold), var(--saffron));
+    opacity: 0.8;
+  }
+  
+  /* Better visibility in light mode */
+  .text-primary {
+    color: var(--maroon-800);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--maroon-900);
+  }
+  
+  h2 {
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 60px;
+    background: linear-gradient(90deg, var(--maroon-700), var(--gold));
+  }
+  
+  .text-center h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Improve text contrast for better readability */
+  p, span, div, a {
+    @apply text-gray-800;
+  }
+  
+  /* Make links and buttons more visible */
+  a:not(.btn), button:not(.btn-secondary) {
+    color: var(--maroon-700);
+  }
+  
+  a:not(.btn):hover, button:not(.btn-secondary):hover {
+    color: var(--maroon-900);
+  }
+  
+  /* Logo and icon elements */
+  .logo-icon, .icon-shape {
+    color: white;
+  }
+  
+  /* Button styling with Indian gold accent */
+  .btn-primary {
+    @apply bg-[#990000] hover:bg-[#800000] text-white;
+    border: 1px solid var(--gold);
+  }
+  
+  /* Card styling with hover effects */
+  .card-maroon {
+    @apply shadow-md transition-all duration-300 ease-in-out;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 0.5rem;
+  }
+  
+  .card-maroon:hover {
+    @apply shadow-lg transform -translate-y-1;
+    border-color: var(--wine);
+  }
+
+  /* Button hover effects */
+  button, 
+  .btn-primary,
+  .btn-secondary {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  button:hover,
+  .btn-primary:hover {
+    @apply transform scale-105;
+  }
+
+  /* Link hover effects */
+  a:not(.btn) {
+    @apply transition-colors duration-300;
+  }
+
+  a:not(.btn):hover {
+    @apply text-primary;
+  }
+
+  /* Input field hover and focus effects */
+  input, 
+  textarea, 
+  select {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  input:hover,
+  textarea:hover,
+  select:hover {
+    @apply border-primary/50;
+  }
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    @apply border-primary ring-1 ring-primary/30;
+  }
+
+  /* Navigation hover effects */
+  .nav-link {
+    @apply relative transition-colors duration-300;
+  }
+
+  .nav-link:after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+  }
+
+  .nav-link:hover:after {
+    @apply w-full;
+  }
+  
+  /* Tag styling with Indian colors */
+  .tag-maroon {
+    @apply px-2 py-1 rounded-full text-xs font-medium;
+    color: var(--maroon-900);
+    background-color: var(--turmeric);
+    border: 1px solid var(--gold);
+  }
+  
+  /* Indian decoration elements */
+  .indian-decor {
+    position: relative;
+  }
+  
+  .indian-decor::before,
+  .indian-decor::after {
+    content: "✦";
+    color: var(--gold);
+    font-size: 1.2rem;
+    margin: 0 0.5rem;
+    opacity: 0.8;
+  }
+}
