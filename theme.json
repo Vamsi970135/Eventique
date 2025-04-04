@@ -1,0 +1,10 @@
+
+{
+  "variant": "default",
+  "primary": "#E65100",
+  "secondary": "#FFB74D",
+  "background": "#FFF8E1",
+  "foreground": "#212121",
+  "muted": "#757575",
+  "accent": "#4CAF50"
+}
